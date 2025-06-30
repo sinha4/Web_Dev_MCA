@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker Demo</title>
+</head>
+<body>
+  <h2>Text Analyzer</h2>
+  <textarea id="textInput" placeholder="Give Input"></textarea>
+
+  <div class="stats">
+    <p><strong>Words:</strong> <span id="words">0</span></p>
+    <p><strong>Characters:</strong> <span id="chars">0</span></p>
+    <p><strong>Reading Time:</strong> <span id="time">0</span> sec</p>
+  </div>
+
+  <script>
+    const worker = new Worker("worker.js");
+
+    const input = document.getElementById("textInput");
+    input.addEventListener("input", () => {
+      worker.postMessage(input.value);
+    });
+
+    worker.onmessage = function(event) {
+      const { words, chars, time } = event.data;
+      document.getElementById("words").textContent = words;
+      document.getElementById("chars").textContent = chars;
+      document.getElementById("time").textContent = time;
+    };
+  </script>
+</body>
+</html>

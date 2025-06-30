@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Early Web – Evolution of Web Dev</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1><i class="fas fa-globe"></i> Evolution of Web Development</h1>
+      <ul style="margin-left: 400px">
+        <li><a href="index.html">The Early Web</a></li>
+        <li><a href="flexbox.html">Layout Era</a></li>
+        <li><a href="map.html">Web Worldwide</a></li>
+        <li><a href="storage.html">Browser Storage</a></li>
+        <li><a href="tailwind.html">Modern Web</a></li>
+      </ul>
+      <button id="darkToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </nav>
+  </header>
+
+  <main class="animate-fade-in">
+      <article class="content-box" style="margin-left: -70px;">
+        <h2><time datetime="1991">1991</time>: The Birth of the Web</h2>
+        <p>The web was born when <strong>Tim Berners-Lee</strong> created the first website using basic <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags.</p>
+        <figure style="width: 700px; margin-left: 150px;">
+          <img src="../Lab_01/assets/The World Wide Web.jpg" width="100%">
+          <figcaption>The original WorldWideWeb browser/editor.</figcaption>
+        </figure>
+      </article>
+
+    <aside>
+      <h3>Quick Fact</h3>
+      <blockquote cite="https://www.w3.org/People/Berners-Lee/">
+        “The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.”  
+        <br><cite>— Tim Berners-Lee</cite>
+      </blockquote>
+    </aside>
+
+    <section>
+      <article>
+        <h2><time datetime="1995">1995</time>: JavaScript Joins the Party</h2>
+        <p>Netscape introduced <mark>JavaScript</mark>, enabling early interactivity. It ran on the client side and revolutionized user experience.</p>
+        <details>
+          <summary>Fun Fact</summary>
+          <p>JavaScript was created in just 10 days by Brendan Eich!</p>
+        </details>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h2><time datetime="1996">1996</time>: CSS Appears</h2>
+        <p><abbr title="Cascading Style Sheets">CSS</abbr> allowed developers to separate content from design, introducing new levels of customization to the static web.</p>
+        <address>
+          Originally proposed by Håkon Wium Lie<br>
+          while at CERN, Switzerland
+        </address>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Evolution of Web Dev | Crafted with <i class="fas fa-code"></i> & curiosity</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('darkToggle');
+    toggleBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme',
+        html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

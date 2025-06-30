@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Worldwide – Evolution of Web Dev</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1><i class="fas fa-globe-asia"></i> Evolution of Web Development</h1>
+      <ul>
+        <li><a href="index.html">The Early Web</a></li>
+        <li><a href="flexbox.html">Layout Era</a></li>
+        <li><a href="map.html">Web Worldwide</a></li>
+        <li><a href="storage.html">Browser Storage</a></li>
+        <li><a href="tailwind.html">Modern Web</a></li>
+      </ul>
+      <button id="darkToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </nav>
+  </header>
+
+  <main class="animate-fade-in">
+    <section>
+      <h2>🗺️ Web Worldwide</h2>
+      <p>The web transformed from a CERN invention into a truly global force. Here’s how it spread across the globe.</p>
+    </section>
+
+    <section>
+      <h3><i class="fas fa-map-marker-alt"></i> Your Location</h3>
+      <p id="location">Detecting your location...</p>
+      <div id="map-container">
+        <!-- This will be a static map by default -->
+        <iframe
+          id="map"
+          width="100%"
+          height="400"
+          style="border:0; border-radius: 12px;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=77.5,12.9,77.7,13.1&layer=mapnik"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="flex-container">
+      <div class="layout-card">
+        <i class="fas fa-code fa-2x"></i>
+        <h3>Silicon Valley, USA</h3>
+        <p>Home to major companies that defined the modern web: Google, Apple, Facebook, and more.</p>
+      </div>
+      <div class="layout-card">
+        <i class="fas fa-network-wired fa-2x"></i>
+        <h3>Bangalore, India</h3>
+        <p>India’s Silicon Valley, key to global tech outsourcing and developer growth.</p>
+      </div>
+      <div class="layout-card">
+        <i class="fas fa-dna fa-2x"></i>
+        <h3>Geneva, Switzerland</h3>
+        <p>Birthplace of the World Wide Web at CERN, where Tim Berners-Lee made history.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Evolution of Web Dev | Mapping the future</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggleBtn = document.getElementById('darkToggle');
+    toggleBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme',
+        html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Geolocation
+    const loc = document.getElementById("location");
+    const map = document.getElementById("map");
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const { latitude, longitude } = position.coords;
+        loc.textContent = `You are at: Latitude ${latitude.toFixed(4)}, Longitude ${longitude.toFixed(4)}`;
+
+        // Update map iframe
+        map.src = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude-0.01},${latitude-0.01},${longitude+0.01},${latitude+0.01}&layer=mapnik&marker=${latitude},${longitude}`;
+      }, () => {
+        loc.textContent = "Unable to access your location.";
+      });
+    } else {
+      loc.textContent = "Geolocation not supported.";
+    }
+  </script>
+</body>
+</html>

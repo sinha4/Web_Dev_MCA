@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Location | The Pastel Mugg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    iframe {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ The Pastel Mugg</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+        <li><a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a></li>
+        <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+        <li><a href="style.html"><i class="fas fa-palette"></i> Style</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 style="text-align:center;">Find Us Here</h2>
+      <p style="text-align:center;">We're always brewing something warm and wonderful for you! Come visit us at our cozy nook in the city.</p>
+
+      <iframe id="google_map" src="https://maps.google.com?output=embed" allowfullscreen></iframe>
+    </section>
+  </main>
+
+    <footer>
+    <p>&copy; 2025 The Pastel Mugg. Shambhavi Sinha 28/6/2025 🧵</p>
+  </footer>
+  <script>
+    window.onload = function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    };
+
+    function showPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const coords = lat + "," + lon;
+      document.getElementById('google_map').src =
+        "https://maps.google.com?q=" + coords + "&z=15&output=embed";
+    }
+
+    function showError(error) {
+      console.error("Geolocation error:", error.message);
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Location Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    iframe {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Find us here!</h2>
+  <p>Click the button to get your current location and view it on the map:</p>
+  <button onclick="getLocation()">📍 Use My Location</button>
+
+  <iframe id="google_map" src="https://maps.google.com?output=embed"></iframe>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const coords = lat + "," + lon;
+      document.getElementById('google_map').src =
+        "https://maps.google.com?q=" + coords + "&z=15&output=embed";
+    }
+
+    function showError(error) {
+      alert("Geolocation error: " + error.message);
+    }
+  </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Location | The Pastel Mugg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    iframe {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ The Pastel Mugg</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+        <li><a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a></li>
+        <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+        <li><a href="style.html"><i class="fas fa-palette"></i> Style</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 style="text-align:center;">Find Us Here</h2>
+      <p style="text-align:center;">We're always brewing something warm and wonderful for you! Come visit us at our cozy nook in the city.</p>
+
+      <iframe id="google_map" src="https://maps.google.com?output=embed" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Pastel Mugg. You bring the smile, we’ll bring the brew ☕</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    };
+
+    function showPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const coords = lat + "," + lon;
+      document.getElementById('google_map').src =
+        "https://maps.google.com?q=" + coords + "&z=15&output=embed";
+    }
+
+    function showError(error) {
+      console.error("Geolocation error:", error.message);
+    }
+  </script>
+</body>
+</html>
+ -->

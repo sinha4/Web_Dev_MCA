@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>The Modern Web – Evolution of Web Dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+      // Enable dark mode with data-theme
+      tailwind.config = {
+        darkMode: 'class',
+      };
+    </script>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition duration-300">
+    <!-- Header -->
+    <header class="bg-blue-600 dark:bg-blue-800 text-white">
+      <nav class="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
+        <h1 class="text-xl font-bold">
+          <i class="fas fa-rocket mr-2"></i>Evolution of Web Development
+        </h1>
+        <ul class="flex gap-4 text-sm">
+          <li><a href="index.html" class="hover:underline">The Early Web</a></li>
+          <li><a href="flexbox.html" class="hover:underline">Layout Era</a></li>
+          <li><a href="map.html" class="hover:underline">Web Worldwide</a></li>
+          <li><a href="storage.html" class="hover:underline">Browser Storage</a></li>
+          <li><a href="tailwind.html" class="underline font-bold">Modern Web</a></li>
+        </ul>
+        <button id="darkToggle" title="Toggle dark mode">
+          <i class="fas fa-moon text-white text-lg"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-10 animate-fade-in">
+      <h2 class="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400">🚀 The Modern Web</h2>
+      <p class="mb-8">Today’s web development is fast, modular, and mobile-first. Tools like <span class="font-semibold text-blue-500">Tailwind</span>, <span class="font-semibold text-purple-500">React</span>, and <span class="font-semibold text-pink-500">Next.js</span> help developers build rich, scalable UIs efficiently.</p>
+
+     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <!-- Card 1 - React -->
+  <a href="https://reactjs.org/" target="_blank" rel="noopener"
+     class="p-6 bg-white dark:bg-gray-800 shadow-md rounded-lg transition hover:scale-105 block">
+    <i class="fab fa-react text-blue-500 text-3xl mb-2"></i>
+    <h3 class="text-xl font-semibold mb-2">React & Component Design</h3>
+    <p class="text-sm">Reusable components and declarative UIs allow efficient, scalable frontend development.</p>
+  </a>
+
+  <!-- Card 2 - JAMstack -->
+  <a href="https://jamstack.org/" target="_blank" rel="noopener"
+     class="p-6 bg-white dark:bg-gray-800 shadow-md rounded-lg transition hover:scale-105 block">
+    <i class="fas fa-bolt text-yellow-500 text-3xl mb-2"></i>
+    <h3 class="text-xl font-semibold mb-2">JAMstack</h3>
+    <p class="text-sm">Combines JavaScript, APIs, and Markup to deliver faster, more secure sites — built for performance.</p>
+  </a>
+
+  <!-- Card 3 - Tailwind CSS -->
+  <a href="https://tailwindcss.com/" target="_blank" rel="noopener"
+     class="p-6 bg-white dark:bg-gray-800 shadow-md rounded-lg transition hover:scale-105 block">
+    <i class="fas fa-swatchbook text-green-500 text-3xl mb-2"></i>
+    <h3 class="text-xl font-semibold mb-2">Tailwind CSS</h3>
+    <p class="text-sm">A utility-first CSS framework for rapidly building custom user interfaces — mobile-first and powerful.</p>
+  </a>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="text-center p-4 text-sm text-gray-600 dark:text-gray-400">
+      &copy; 2025 Evolution of Web Dev | Crafted with Tailwind ❤️
+    </footer>
+
+    <!-- Dark mode toggle script -->
+    <script>
+      const toggleBtn = document.getElementById('darkToggle');
+      toggleBtn.addEventListener('click', () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', newTheme);
+        document.body.classList.toggle('dark', newTheme === 'dark');
+      });
+    </script>
+  </body>
+</html>
