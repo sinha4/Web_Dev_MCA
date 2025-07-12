@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Get Even Numbers</title>
+</head>
+<body>
+    <script>
+    function getEvenNumbers(arr){
+        const evenNumbers = [];
+        for (let i=0;i<arr.length;i++){
+            if(arr[i]%2==0){
+                evenNumbers.push(arr[i]);
+            }
+        }
+        document.write(evenNumbers);
+    }
+    const numbers=[1,2,3,4,5,6,7,8,9];
+    getEvenNumbers(numbers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Printing even Numbers</title>
+</head>
+<body>
+    <script>
+        function getEvenNumbers(arr) {
+            const evenNumbers = arr.filter(function(num) {
+                return num % 2 === 0;
+            });
+            document.write("Even numbers:", evenNumbers);
+        }
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        getEvenNumbers(numbers);
+    </script>
+</body>
+</html>

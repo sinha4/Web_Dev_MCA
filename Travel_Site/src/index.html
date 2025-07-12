@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Destinations</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
+          <i class="fas fa-compass"></i> Wanderlust
+        </div>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-8 font-semibold">
+          <li>
+            <a href="#home" class="flex items-center gap-1 hover:text-indigo-600">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="#places" class="flex items-center gap-1 hover:text-indigo-600">
+              <i class="fas fa-map-marker-alt"></i> Places
+            </a>
+          </li>
+          <li>
+            <a href="#gallery" class="flex items-center gap-1 hover:text-indigo-600">
+              <i class="fas fa-image"></i> Gallery
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="flex items-center gap-1 hover:text-indigo-600">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+          </li>
+        </ul>
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 hamburger" aria-label="Toggle menu">
+          <span class="block w-8 h-0.5 bg-gray-700 rounded"></span>
+          <span class="block w-8 h-0.5 bg-gray-700 rounded"></span>
+          <span class="block w-8 h-0.5 bg-gray-700 rounded"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden flex-col px-4 py-2 space-y-2 font-semibold">
+      <li>
+        <a href="#home" class="flex items-center gap-2 hover:text-indigo-600">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </li>
+      <li>
+        <a href="#places" class="flex items-center gap-2 hover:text-indigo-600">
+          <i class="fas fa-map-marker-alt"></i> Places
+        </a>
+      </li>
+      <li>
+        <a href="#gallery" class="flex items-center gap-2 hover:text-indigo-600">
+          <i class="fas fa-image"></i> Gallery
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="flex items-center gap-2 hover:text-indigo-600">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home"
+    class="relative bg-cover bg-center h-[450px] flex flex-col justify-center items-center text-center text-white"
+    style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 max-w-3xl px-4">
+      <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Discover Your Next Adventure</h1>
+      <p class="text-lg mb-8 drop-shadow-md">Explore the most breathtaking destinations around the globe with us.</p>
+      <a href="#places" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition">
+        Explore Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Places Section -->
+  <section id="places" class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Popular Places</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+        <i class="fas fa-mountain text-indigo-600 text-5xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Mountains</h3>
+        <p class="text-gray-600">Experience the breathtaking views and fresh air.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+        <i class="fas fa-umbrella-beach text-indigo-600 text-5xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Beaches</h3>
+        <p class="text-gray-600">Relax on sunny beaches with golden sands.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+        <i class="fas fa-city text-indigo-600 text-5xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Cities</h3>
+        <p class="text-gray-600">Explore vibrant city life and culture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="gallery" class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-4 text-center">A Peek Inside Our Destinations</h2>
+    <video
+      controls
+      preload="metadata"
+      class="w-full rounded-lg shadow-lg"
+      >
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+      <track
+        src="https://interactive-examples.mdn.mozilla.net/media/examples/subtitles.vtt"
+        kind="subtitles"
+        srclang="en"
+        label="English"
+        default
+      />
+      Sorry, your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- Audio Section -->
+  <section class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-4 text-center">Relax With Our Music</h2>
+    <audio controls class="w-full rounded shadow-md">
+      <source src="assets/elevate.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- Dynamic Fetch API Section -->
+  <section class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Latest Travel Tips</h2>
+    <div id="tips-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <p class="col-span-full text-center text-gray-500">Loading tips...</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-4 text-center">Contact Us</h2>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-md mx-auto">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Your name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+        <textarea
+          id="message"
+          rows="4"
+          placeholder="Your message here..."
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        ></textarea>
+      </div>
+      <div class="flex justify-center">
+        <button
+          type="submit"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer with SVG -->
+  <footer class="bg-indigo-600 text-white py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      <div class="flex items-center space-x-3">
+        <!-- SVG Location Pin -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4-4-8-8-8-12a8 8 0 1116 0c0 4-4 8-8 12z" />
+        </svg>
+        <span>© 2025 Wanderlust Travels</span>
+      </div>
+      <div class="flex space-x-6 text-xl">
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      hamburgerBtn.classList.toggle('active');
+    });
+
+    // Fetch API to load travel tips - fetches placeholder posts
+    const tipsContainer = document.getElementById('tips-container');
+
+    async function loadTravelTips() {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=6');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+
+        tipsContainer.innerHTML = data
+          .map(
+            (tip) => `
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+            <h3 class="font-bold text-lg mb-2">${tip.title}</h3>
+            <p class="text-gray-600 text-sm">${tip.body.slice(0, 100)}...</p>
+          </div>
+        `
+          )
+          .join('');
+      } catch (error) {
+        tipsContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Failed to load tips.</p>';
+        console.error('Fetch error:', error);
+      }
+    }
+
+    loadTravelTips();
+  </script>
+</body>
+</html>

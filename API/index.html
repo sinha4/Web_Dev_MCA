@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokémon Fetcher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #pokemonSprite {
+      margin-top: 20px;
+      display: none;
+      width: 150px;
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pokémon Fetcher</h1>
+  <input type="text" id="pokemonName" placeholder="Enter Pokémon name">
+  <button onclick="fetchData()">Get Pokémon</button>
+  <br>
+  <img id="pokemonSprite" src="" alt="Pokémon Sprite">
+
+  <script src="index.js"></script>
+</body>
+</html>
