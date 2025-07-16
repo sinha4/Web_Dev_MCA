@@ -1,58 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | The Pastel Mugg</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffaf5;
+    }
+    header, footer {
+      background-color: #d9a46d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #fef3eb;
+    }
     .login-box {
-      max-width: 400px;
+      max-width: 500px;
       margin: 2rem auto;
       background: #fff;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
     .login-box label,
-    .login-box input {
+    .login-box input,
+    .login-box select,
+    .login-box textarea {
       display: block;
-      width: 93%;
+      width: 100%;
       margin-bottom: 1rem;
     }
-
-    .login-box input {
+    .login-box input,
+    .login-box select,
+    .login-box textarea {
       padding: 0.75rem;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
-
+    .login-box input:focus,
+    .login-box textarea:focus {
+      outline: none;
+      border: 1px solid #a87555;
+      box-shadow: 0 0 0 2px #f3e9e3;
+    }
     .login-box button {
       width: 100%;
       padding: 0.75rem;
       border: none;
       border-radius: 8px;
-      background: var(--accent);
+      background: #a87555;
       color: white;
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 1rem;
     }
-
     .login-box button:hover {
       background: #5c4033;
     }
-
     .stored-info {
       background: #f8f8f8;
       border-radius: 10px;
       padding: 1rem;
       font-size: 0.9rem;
       margin-top: 1rem;
+    }
+    small {
+      color: #e76f51;
+      display: none;
+      margin-top: -0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -67,6 +107,9 @@
         <li><a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a></li>
         <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
         <li><a href="style.html"><i class="fas fa-palette"></i> Style</a></li>
+        <li><a href="video.html"><i class="fas fa-video"></i> Video</a></li>
+        <li><a href="gallery.html"><i class="fas fa-image"></i> Gallery</a></li>
+        <li><a href="explore.html"><i class="fas fa-search"></i> Explore</a></li>
       </ul>
     </nav>
   </header>
@@ -74,12 +117,36 @@
   <main>
     <section class="login-box">
       <h2>Suggestions For Your Mug? ☕</h2>
-      <form onsubmit="saveCredentials(event)">
+      <form onsubmit="validateAndSave(event)">
         <label for="username">Username</label>
-        <input type="text" id="username" required />
+        <input type="text" id="username" />
+        <small id="usernameError">Username must be at least 3 characters.</small>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+        <small id="emailError">Please enter a valid email address.</small>
 
         <label for="password">Comment</label>
-        <input type="text" id="password" required />
+        <textarea id="password" rows="3"></textarea>
+        <small id="commentError">Comment cannot be empty.</small>
+
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Female" checked> Female</label>
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+
+        <label for="drink">Favorite Drink</label>
+        <select id="drink">
+          <option value="Cappuccino">Cappuccino</option>
+          <option value="Matcha">Matcha Latte</option>
+          <option value="Cold Brew">Cold Brew</option>
+          <option value="Hot Chocolate">Hot Chocolate</option>
+        </select>
+
+        <label for="rating">Rating (1 to 5)</label>
+        <input type="number" id="rating" min="1" max="5" />
 
         <button type="submit">Save</button>
       </form>
@@ -92,34 +159,70 @@
     </section>
   </main>
 
-    <footer>
+  <footer>
     <p>&copy; 2025 The Pastel Mugg. Shambhavi Sinha 28/6/2025 🧵</p>
   </footer>
 
   <script>
-    function saveCredentials(event) {
+    function validateAndSave(event) {
       event.preventDefault();
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const comment = document.getElementById("password").value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const drink = document.getElementById("drink").value;
+      const rating = document.getElementById("rating").value;
 
+      let isValid = true;
+
+      // Validation
+      if (username.length < 3) {
+        document.getElementById("usernameError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("usernameError").style.display = "none";
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").style.display = "none";
+      }
+
+      if (comment === "") {
+        document.getElementById("commentError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("commentError").style.display = "none";
+      }
+
+      if (!isValid) return;
+
+      // Save to storage
       localStorage.setItem("username", username);
-      sessionStorage.setItem("password", password);
+      localStorage.setItem("email", email);
+      localStorage.setItem("drink", drink);
+      sessionStorage.setItem("comment", comment);
+      sessionStorage.setItem("gender", gender);
+      sessionStorage.setItem("rating", rating);
 
-      alert("Welcome, " + username + "! Your details have been saved.");
+      alert("Thank you, " + username + "! Your feedback has been saved.");
       document.querySelector("form").reset();
     }
 
     function showCredentials() {
-      const storedUsername = localStorage.getItem("username") || "<not saved>";
-      const storedPassword = sessionStorage.getItem("password") || "<not saved>";
-
       const displayDiv = document.getElementById("storedInfo");
       displayDiv.innerHTML = `
-        <p><strong>Username (localStorage):</strong> ${storedUsername}</p>
-        <p><strong>Comment (sessionStorage):</strong> ${storedPassword}</p>
+        <p><strong>Username:</strong> ${localStorage.getItem("username") || "N/A"}</p>
+        <p><strong>Email:</strong> ${localStorage.getItem("email") || "N/A"}</p>
+        <p><strong>Favorite Drink:</strong> ${localStorage.getItem("drink") || "N/A"}</p>
+        <p><strong>Comment:</strong> ${sessionStorage.getItem("comment") || "N/A"}</p>
+        <p><strong>Gender:</strong> ${sessionStorage.getItem("gender") || "N/A"}</p>
+        <p><strong>Rating:</strong> ${sessionStorage.getItem("rating") || "N/A"}/5</p>
       `;
     }
   </script>
 </body>
-
 </html>

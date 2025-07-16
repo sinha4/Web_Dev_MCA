@@ -1,0 +1,53 @@
+/* Font & Base Colors */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fef9f6;
+  color: #5b4238;
+  line-height: 1.6;
+}
+
+/* Navbar Hover Effects */
+nav a:hover {
+  color: #b08968;
+  font-weight: bold;
+}
+
+nav li:hover::before {
+  content: "🍪 ";
+}
+
+/* Header Twinkle */
+h1:hover::after {
+  content: " ✨";
+  animation: twinkle 0.4s ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Video Caption Styling */
+video:hover + figcaption {
+  color: #c08b75;
+  font-style: italic;
+}
+
+/* Music List Hover Styling */
+ul li:hover {
+  background-color: #f4e1d2;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* Focused Audio Player */
+audio:focus {
+  outline: 2px solid #a67c52;
+  box-shadow: 0 0 10px #e6cfc5;
+}
+
+/* Special Last Track */
+ul li:last-child {
+  background-color: #fff2e6;
+  border-left: 4px solid #d9b99b;
+}
