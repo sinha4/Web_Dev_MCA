@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: url('../assets/ee8bb981c62ddf7c5343b2de7d6f35af.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-3 py-3 flex justify-between items-center space-x-9 ml-4">
+            <a href="#" class="text-2xl font-bold text-pink-600">
+                <i class="fa-solid fa-envelope mr-4"></i>Savana
+            </a>
+             <div class="flex space-x-6 items-center">
+                <a href="#products" class="text-pink-600 hover:text-pink-300"><i class="fa-solid fa-tags"></i><span class="hidden md:inline ml-1">Products</span></a>
+                <a href="#about" class="text-pink-600 hover:text-pink-300"><i class="fa-solid fa-circle-info"></i><span class="hidden md:inline ml-1">About</span></a>
+                <a href="#contact" class="text-pink-600 hover:text-pink-300"><i class="fa-solid fa-envelope"></i><span class="hidden md:inline ml-1">Contact</span></a>
+                <a href="#user-info" class="text-pink-600 hover:text-pink-300"><i class="fa-solid fa-location"></i><span class="hidden md:inline ml-1">Location</span></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-bg h-96 flex items-center justify-end text-white">
+            <div class="text-right bg-purple-200 bg-opacity-0 p-8 rounded-lg">
+                <h1 class="text-4xl md:text-6xl font-extrabold">Discover with Savana!</h1>
+                <h1 class="text-4xl md:text-6xl font-extrabold">Get your hands</h1>
+                <h1 class="text-4xl md:text-6xl font-extrabold">on your favourite items!</h1>
+                <p class="mt-4 text-xl">Quality products, delivered to your doorstep.</p>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-pink-600 mb-8">Top Products</h2>
+                
+                <!-- Search and Sort Controls -->
+                <div class="flex flex-col md:flex-row gap-4 mb-8 justify-center items-center">
+                    <div class="relative w-full md:w-1/2 lg:w-1/3">
+                         <input type="text" id="search-box" placeholder="Search for a product..." class="w-full py-2 px-4 border border-pink-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-600">
+                         <button id="search-button" class="absolute right-0 top-0 mt-2 mr-4 text-pink-600 hover:text-pink-500">
+                            <i class="fas fa-search"></i>
+                         </button>
+                    </div>
+                     <select id="sort-dropdown" class="py-2 px-4 border border-pink-600 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-100">
+                        <option value="default">Sort by</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+
+                <!-- Top Products -->
+                <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section (Video & Audio) -->
+        <section id="about" class="py-12 bg-pink-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">About Our Store</h2>
+                <div class="max-w-3xl mx-auto">
+                    <video controls class="w-full rounded-lg shadow-lg mb-8" preload="metadata">
+                        <source src="../assets/Set1 Video.mp4" type="video/mp4">
+                        <track label="English" kind="subtitles" srclang="en" src="subtitles.vtt" default>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Featured Product Promotion</h3>
+                <audio controls class="mx-auto">
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </section>
+
+                <section id="user-info" class="container mx-auto px-6 py-4 text-center">
+            <h1 id="geo-location" class="text-xl text-gray-500 mt-1"></h1>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="py-12">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Interested in a Product?</h2>
+                    <form id="interest-form" novalidate>
+                        <div class="mb-4">
+                            <label for="user-name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                            <input type="text" id="user-name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="user-email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                            <input type="email" id="user-email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="product-interest" class="block text-gray-700 font-semibold mb-2">Product You Are Interested In</label>
+                            <input type="text" id="product-interest" name="product" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <p id="form-error" class="text-red-500 text-sm mb-4 hidden">Please fill out all fields.</p>
+                        <button type="submit" class="w-full bg-pink-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-pink-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
+                            Submit Interest
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+      <!-- Info Pop Up -->
+    </main>
+
+    <footer class="bg-pink-600 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 E-Shop Explorer. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
