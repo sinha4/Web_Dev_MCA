@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: url('../assets/college.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-blue-900 font-sans">
+
+    <!-- Header -->
+    <header class="bg-blue-900 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-3 py-3 flex justify-between items-center space-x-9 ml-4">
+            <a href="#" class="text-xl font-bold text-white">
+                <i class="fa-solid fa-circle-info mr-4"></i>University Feedback Form
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-bg h-96 flex items-center justify-center text-blue-900 relative">
+            <div class="absolute inset-0 bg-blue-100/70"></div>
+            <h1 class="text-4xl md:text-6xl font-extrabold relative z-10">Feedback Form</h1>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="py-12">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold text-center text-gray-800 mb-6">How did you like the guest lecture?</h2>
+                    <form id="interest-form" novalidate>
+                        <div class="mb-4">
+                            <label for="user-name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                            <input type="text" id="user-name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="user-email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                            <input type="email" id="user-email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="department-select" class="block text-gray-700 font-semibold mb-2">Department</label>
+                            <div class="relative">
+                                <select id="department-select" name="department" required class="w-full appearance-none rounded-lg border bg-white px-4 py-3 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="" disabled selected>Select a Department</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Business Administration">Business Administration</option>
+                                    <option value="Fine Arts">Fine Arts</option>
+                                    <option value="Engineering">Engineering</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2">Rating</label>
+                            <div class="flex items-center justify-start space-x-6">
+                                <label for="rating-1" class="flex items-center space-x-2 cursor-pointer"><input type="radio" id="rating-1" name="rating" value="1" required class="focus:ring-blue-500 h-4 w-4"> <span>1</span></label>
+                                <label for="rating-2" class="flex items-center space-x-2 cursor-pointer"><input type="radio" id="rating-2" name="rating" value="2" class="focus:ring-blue-500 h-4 w-4"> <span>2</span></label>
+                                <label for="rating-3" class="flex items-center space-x-2 cursor-pointer"><input type="radio" id="rating-3" name="rating" value="3" class="focus:ring-blue-500 h-4 w-4"> <span>3</span></label>
+                                <label for="rating-4" class="flex items-center space-x-2 cursor-pointer"><input type="radio" id="rating-4" name="rating" value="4" class="focus:ring-blue-500 h-4 w-4"> <span>4</span></label>
+                                <label for="rating-5" class="flex items-center space-x-2 cursor-pointer"><input type="radio" id="rating-5" name="rating" value="5" class="focus:ring-blue-500 h-4 w-4"> <span>5</span></label>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="comments" class="block text-gray-700 font-semibold mb-2">Comments</label>
+                            <textarea id="comments" name="comments" rows="4" placeholder="Any additional feedback..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <p id="form-error" class="text-red-500 text-sm mb-4 hidden">Please fill out all fields.</p>
+                        <button type="submit" class="w-full bg-blue-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-300 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
+                            Submit Feedback
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-100 text-blue-900 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Feedback Form. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
