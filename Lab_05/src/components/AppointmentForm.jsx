@@ -18,23 +18,15 @@ const AppointmentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Get existing appointments from localStorage or initialize empty array
     const existingAppointments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
-    // Add new appointment
     const newAppointment = { ...formData };
     existingAppointments.push(newAppointment);
-
-    // Save updated array back to localStorage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(existingAppointments));
 
-    // Set the latest appointment for display
     setLatestAppointment(newAppointment);
-
-    // Show confirmation view
     setIsSubmitted(true);
 
-    // Clear form data
     setFormData({ name: '', email: '', date: '' });
   };
 

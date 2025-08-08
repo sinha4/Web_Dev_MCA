@@ -13,15 +13,15 @@ const Services = ({ services }) => {
 
   return (
     <div className="flex justify-center items-center py-12 px-4">
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl p-8 max-w-2xl w-full text-center">
+      <div className="bg-white border-grey-200 rounded-2xl shadow-2xl p-8 max-w-2xl w-full text-center">
         <h2 className="text-4xl font-bold text-teal-600 mb-4">Our Services</h2>
         <p className="text-lg text-teal-500 mb-6">
           We offer a wide range of medical services to meet your needs. Our team of experts is here to provide you with the highest quality care.
         </p>
 
         <img
-          src={services[currentIndex].image}
-          alt={services[currentIndex].name}
+          src={services.image}
+          alt={services.name}
           className="w-full h-60 object-cover rounded-lg mb-4"
         />
         <h3 className="text-2xl font-semibold text-gray-800">{services[currentIndex].name}</h3>
