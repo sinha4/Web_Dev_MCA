@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // 👈 Step 1: Import Axios
+import axios from 'axios'; 
 import SearchBox from './components/SearchBox';
 import MedCard from './components/MedCard';
 
@@ -15,12 +15,10 @@ const App = () => {
         ? `openfda.brand_name:"${searchTerm}"`
         : 'openfda.brand_name:*'; 
       
-      // 👈 Step 2: Replace `fetch` with `axios.get()`
       const response = await axios.get(
         `https://api.fda.gov/drug/label.json?search=${q}&limit=50`
       );
       
-      // Axios automatically parses the JSON, so data is in response.data
       const data = response.data; 
 
       const invalids = ['unknown', '', 'n/a', 'not specified'];
