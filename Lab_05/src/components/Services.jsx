@@ -20,10 +20,10 @@ const Services = ({ services }) => {
         </p>
 
         <img
-          src={services.image}
-          alt={services.name}
-          className="w-full h-60 object-cover rounded-lg mb-4"
-        />
+        src={services[currentIndex].image}
+        alt={services[currentIndex].name}
+        className="w-full h-60 object-cover rounded-lg mb-4"
+      />
         <h3 className="text-2xl font-semibold text-gray-800">{services[currentIndex].name}</h3>
         <p className="mt-2 text-gray-600">{services[currentIndex].description}</p>
 

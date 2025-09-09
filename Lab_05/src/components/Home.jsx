@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header'; // Import the Header component
+import Header from './Header'; 
 
 const Home = () => {
   return (
@@ -10,7 +10,6 @@ const Home = () => {
         buttonText="Book an Appointment Today"
       />
       
-      {/* You can add more content here, like a services section or a carousel */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-teal-600">Why Choose Us?</h2>

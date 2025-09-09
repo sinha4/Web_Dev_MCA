@@ -6,6 +6,7 @@ const AppointmentForm = () => {
   const [formData, setFormData] = useState({ name: '', email: '', date: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [latestAppointment, setLatestAppointment] = useState(null);
+  const [errors, setErrors] = useState({}); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,10 +14,35 @@ const AppointmentForm = () => {
       ...prevState,
       [name]: value
     }));
+    if (errors[name]) {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        [name]: null
+      }));
+    }
+  };
+
+
+  const validateForm = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     const existingAppointments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
@@ -80,6 +106,7 @@ const AppointmentForm = () => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
           <div>
             <label htmlFor="date" className="block text-teal-700 font-semibold mb-2">Schedule Date</label>
